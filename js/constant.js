@@ -16,7 +16,7 @@ export const LEVEL_UP_FOOD = 5;
 const canvas = document.getElementById("Canvas");
 
 function setCanvasSize() {
-  const cssWidth = canvas.clientWidth || 600;
+  const cssWidth = canvas.clientWidth || 900;
   const cssHeight = Math.round(cssWidth * 0.6);
   // BUG FIX: snap both dimensions down to the nearest multiple of
   // Grid_Size. Previously the canvas could end up with a width/height
