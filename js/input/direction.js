@@ -20,6 +20,6 @@ export function setDirection(Dx, Dy) {
   dx = Dx;
   dy = Dy;
 
-  console.log(dx);
-  console.log(dy);
+  // console.log(dx);
+  // console.log(dy);
 }

@@ -102,8 +102,8 @@ export function restart() {
   // myInterval = setInterval(gameLoop, 200);
 }
 
-console.log("Snake food x " + snakeFood.x + " y " + snakeFood.y);
-console.log("food color" + foodColor);
+// console.log("Snake food x " + snakeFood.x + " y " + snakeFood.y);
+// console.log("food color" + foodColor);
 
 export function gameLoop() {
   clearCanvas();

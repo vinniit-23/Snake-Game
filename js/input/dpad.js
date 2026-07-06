@@ -17,8 +17,8 @@ up.addEventListener("click", () => {
     //   if (dy !== +Grid_Size) {
     //     dx = 0;
     //     dy = -Grid_Size;
-    console.log(dx);
-    console.log(dy);
+    // console.log(dx);
+    // console.log(dy);
     // setDirection(0, -Grid_Size);
     setDirection(0, -1);
   }
@@ -29,8 +29,8 @@ down.addEventListener("click", () => {
   if (dy !== -1) {
     // dx = 0;
     // dy = +Grid_Size;
-    console.log(dx);
-    console.log(dy);
+    // console.log(dx);
+    // console.log(dy);
     // setDirection(0, +Grid_Size);
     setDirection(0, +1);
   }
@@ -41,8 +41,8 @@ right.addEventListener("click", () => {
   if (dx !== -1) {
     // dx = +Grid_Size;
     // dy = 0;
-    console.log(dx);
-    console.log(dy);
+    // console.log(dx);
+    // console.log(dy);
     // setDirection(+Grid_Size, 0);
     setDirection(+1, 0);
   }
@@ -53,8 +53,8 @@ left.addEventListener("click", () => {
   if (dx !== +1) {
     // dx = -Grid_Size;
     // dy = 0;
-    console.log(dx);
-    console.log(dy);
+    // console.log(dx);
+    // console.log(dy);
     // setDirection(-Grid_Size, 0);
     setDirection(-1, 0);
   }
