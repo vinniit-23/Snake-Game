@@ -1,25 +1,22 @@
-
 // collision.js
 
-import { Height,Width } from "./rerender.js";
+import { getCols, getRows, } from "./constant.js";
+
+
+
 
 export function checkWall(head) {
-  if (
-    head.x < 0 ||
-    head.x > Width ||
-    head.y < 0 ||
-    head.y > Height
-  ) {
+  if (head.x < 0 || head.x >= getCols() || head.y < 0 || head.y >= getRows()) {
     console.log("Snake Collided with wall ");
     console.log(
       "if anything went wrong on wall collision part then check wallCollision function",
     );
     return true;
   }
-  return false
+  return false;
 }
 
-export function checkSelf(head,snakeLength) {
+export function checkSelf(head, snakeLength) {
   for (let index = 1; index < snakeLength.length; index++) {
     const element = snakeLength[index];
     if (element.x === head.x && element.y === head.y) {
@@ -30,7 +27,7 @@ export function checkSelf(head,snakeLength) {
       return true;
     }
   }
-  return false
+  return false;
 }
 
 export function checkFood(head, snakeFood) {
@@ -41,11 +38,11 @@ export function checkFood(head, snakeFood) {
     );
     return true;
   }
-  return false
+  return false;
 }
 
 export function checkCollision(head, snakeLength) {
-  if (checkWall(head)||checkSelf(head, snakeLength)) {
+  if (checkWall(head) || checkSelf(head, snakeLength)) {
     return true;
   }
   return false;

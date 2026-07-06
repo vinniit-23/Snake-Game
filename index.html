@@ -3,16 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&family=VT323&display=swap"
+      rel="stylesheet"
+    />
     <title>SnaKe Game</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Snake Game</h1>
-    <canvas id="Canvas" height="600px" width="1000px"></canvas>
-    <div class="buttons">
-      <button id="Game-Button">Start Game</button>
-      <button id="Stop-Game-Button">Stop Game</button>
+    <!-- <div class="game-container-wrapper"> -->
+    <div class="game-container">
+      <h1 class="title">SNAKE</h1>
+
+      <div class="scores">
+        <div>
+          <span>SCORE:</span>
+          <p id="score">000</p>
+        </div>
+
+        <div>
+          <span>LEVEL:</span>
+          <p id="level">00</p>
+        </div>
+
+        <div>
+          <span>HIGH:</span>
+          <p id="high-score">000</p>
+        </div>
+      </div>
+      <hr />
+
+      <div class="canvas-wrapper">
+        <canvas id="Canvas"></canvas>
+      </div>
+
+      <div class="buttons">
+        <button id="Game-Button">START</button>
+
+        <button id="Stop-Game-Button">PAUSE</button>
+      </div>
     </div>
+    <div  id="d-pad" >
+      <button id="up">▲</button>
+
+      <div class="middle">
+        <button id="left">◀</button>
+
+        <div></div>
+
+        <button id="right">▶</button>
+      </div>
+
+      <button id="down">▼</button>
+    </div>
+    <!-- </div> -->
+
+    <p class="coin-text">INSERT COIN TO PLAY</p>
+
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

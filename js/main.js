@@ -1,6 +1,9 @@
 // main.js
 // import { pause } from "./game";
 import { STATES } from "./constant.js";
+import "./input/input.js";
+import "./input/dpad.js";
+import "./input/swipe.js";
 import {
   gameState,
   start,
@@ -12,28 +15,31 @@ import {
 
 const GameButton = document.getElementById("Game-Button");
 const stopGameButton = document.getElementById("Stop-Game-Button");
+const dPad = document.querySelector("#d-pad")
+
+// if(window)
 
 
 function updateButtons() {
   switch (gameState) {
     case STATES.IDLE:
-      GameButton.innerText = "Start Game";
-      stopGameButton.innerText = "Stop Game";
+      GameButton.innerText = "Start";
+      stopGameButton.innerText = "Stop";
       break;
 
     case STATES.RUNNING:
-      GameButton.innerText = "Start Game";
-      stopGameButton.innerText = "Stop Game";
+      GameButton.innerText = "Start";
+      stopGameButton.innerText = "Stop";
       break;
 
     case STATES.PAUSED:
-      GameButton.innerText = "Start Game";
+      GameButton.innerText = "Start";
       stopGameButton.innerText = "Resume";
       break;
 
     case STATES.GAMEOVER:
       GameButton.innerText = "Restart";
-      stopGameButton.innerText = "Stop Game";
+      stopGameButton.innerText = "Stop";
       break;
   }
 }
@@ -63,7 +69,3 @@ stopGameButton.addEventListener("click", () => {
     // updateButtons();
   }
 });
-
-
-
-

@@ -1,5 +1,8 @@
 // food.js
-import { Grid_Size,Rows,Cols,Colors } from "./constant.js";
+import { Grid_Size, Colors, getRows, getCols } from "./constant.js";
+
+const Rows = getRows();
+const Cols = getCols();
 
 export function generateFood() {
   if (
@@ -10,16 +13,17 @@ export function generateFood() {
     console.error("Grid constants not defined!");
     return { xAxis: 0, yAxis: 0 };
   }
-  let xAxis = Math.floor(Math.random() * Cols) * Grid_Size;
-  let yAxis = Math.floor(Math.random() * Rows) * Grid_Size;
+  let xAxis = Math.floor(Math.random() * Cols);
+  let yAxis = Math.floor(Math.random() * Rows);
 
   // Step 3: Return only valid position
   return { xAxis, yAxis };
 }
 
 export function getFood(snakeLength) {
-  let y = generateFood().yAxis;
-  let x = generateFood().xAxis;
+  const food = generateFood();
+  let y;
+  let x;
   let isValid = false;
   // console.log(x);
   // console.log(y);
@@ -38,8 +42,10 @@ export function getFood(snakeLength) {
 
   while (!isValid) {
     // Step 1: Generate random position
-    y = generateFood().yAxis;
-    x = generateFood().xAxis;
+    // y = generateFood().yAxis;
+    // x = generateFood().xAxis;
+    y = food.yAxis;
+    x = food.xAxis;
     isValid = true;
 
     // Step 2: Check against entire snake

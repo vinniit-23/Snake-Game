@@ -5,9 +5,9 @@ let snake = [];
 
 export function createSnake() {
   snake = [
-    { x: 50, y: 50 },
-    { x: 40, y: 50 },
-    { x: 30, y: 50 },
+    { x: 5, y: 5 },
+    { x: 4, y: 5 },
+    { x: 3, y: 5 },
   ];
 }
 
