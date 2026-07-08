@@ -1,5 +1,6 @@
 // constant.js
-export const Grid_Size = 20;
+export let Grid_Size = 20;
+// console.log(Grid_Size);
 
 export const STATES = {
   IDLE: "idle",
@@ -18,11 +19,6 @@ const canvas = document.getElementById("Canvas");
 function setCanvasSize() {
   const cssWidth = canvas.clientWidth || 900;
   const cssHeight = Math.round(cssWidth * 0.6);
-  // BUG FIX: snap both dimensions down to the nearest multiple of
-  // Grid_Size. Previously the canvas could end up with a width/height
-  // that wasn't an exact multiple of the grid, which made Rows/Cols
-  // fractional and could let food spawn partially off-grid or make
-  // the wall boundary land mid-cell.
   canvas.width = Math.floor(cssWidth / Grid_Size) * Grid_Size;
   canvas.height = Math.floor(cssHeight / Grid_Size) * Grid_Size;
 }
@@ -30,6 +26,12 @@ setCanvasSize();
 
 const Width = canvas.width;
 const Height = canvas.height;
+
+if (canvas.width <= 350 && canvas.height <= 200) {
+  Grid_Size = 15;
+}
+
+// console.log(Grid_Size);
 
 export function getCanvasWidth() {
   return canvas.width;

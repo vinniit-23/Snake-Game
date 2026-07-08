@@ -35,7 +35,7 @@ body {
 
   gap: 16px;
 
-  padding:  20px;
+  padding: 20px;
 
   overflow-x: hidden;
 }
@@ -341,7 +341,8 @@ hr {
   }
 
   .game-container {
-    padding: 18px;
+    padding: 12px;
+    gap: 10px;
 
     border-radius: 14px;
   }
@@ -353,11 +354,11 @@ hr {
   }
 
   .scores span {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .scores p {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .buttons {
@@ -367,16 +368,16 @@ hr {
   #Canvas {
     height: auto;
     aspect-ratio: 5/3;
-    max-height: 45vh;
+    max-height: 50vh;
   }
 
   #Game-Button,
   #Stop-Game-Button {
-    width: 140px;
+    width: 100px;
 
-    height: 40px;
+    height: 30px;
 
-    font-size: 16px;
+    font-size: 12px;
   }
 
   #d-pad {
@@ -390,7 +391,7 @@ hr {
     gap: 12px;
 
     margin-top: 6px;
-    height: 25dvh;
+    /* height: 25dvh; */
   }
 
   .middle {
@@ -443,7 +444,7 @@ hr {
   }
 
   .coin-text {
-    font-size: 14px;
+    font-size: 12px;
 
     letter-spacing: 2px;
   }

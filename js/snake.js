@@ -1,6 +1,7 @@
 
-
+// snake.js
 let snake = [];
+
 
 
 export function createSnake() {
