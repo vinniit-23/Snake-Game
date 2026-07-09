@@ -34,7 +34,8 @@ let speed = INITIAL_SPEED;
 let foodColor = randomFoodColor();
 let snakeFood = snakeLength.length > 0 ? getFood(snakeLength) : null;
 let myInterval = null;
-
+const levelUp = new Audio("../Audios/level-up-0-523643.mp3");
+const eatAudio = new Audio("../Audios/eat-323883.mp3");
 let onStateChange = null; //updateButton
 
 export function onStateChangeListner(callback) {
@@ -60,8 +61,10 @@ export function start() {
 
 export function updateSpeed() {
   let level = Math.floor(Score / LEVEL_UP_FOOD) + 1;
+
   drawLevel(level);
-  speed = Math.max(MIN_SPEED, INITIAL_SPEED - level * SPEED_INCREMENT);
+
+  speed = Math.max(MIN_SPEED, INITIAL_SPEED - (level - 1) * SPEED_INCREMENT);
 
   clearInterval(myInterval);
   myInterval = setInterval(gameLoop, speed);
@@ -77,7 +80,6 @@ export function pause() {
 export function resume() {
   // gameState = STATES.RUNNING;
   setGameState(STATES.RUNNING);
-
   myInterval = setInterval(gameLoop, speed);
 }
 
@@ -107,7 +109,7 @@ export function restart() {
 
 export function gameLoop() {
   clearCanvas();
-  drawGrid(Grid_Size, Grid_Size, "rgba(0,255,90,.04)");
+  // drawGrid(Grid_Size, Grid_Size, "rgba(0,255,90,.04)");
   let direction = getDirections();
   moveSnake(direction.dx, direction.dy);
   const head = getHead();
@@ -116,7 +118,7 @@ export function gameLoop() {
     // gameState = STATES.GAMEOVER;
     setGameState(STATES.GAMEOVER);
     clearCanvas();
-    drawGrid(Grid_Size, Grid_Size, "rgba(0, 255, 0, 0.07)");
+    // drawGrid(Grid_Size, Grid_Size, "rgba(0, 255, 0, 0.07)");
     drawGameOver();
     return;
   }
@@ -127,12 +129,19 @@ export function gameLoop() {
     //   "Inside checkFood Snake food x " + snakeFood.x + " y " + snakeFood.y,
     // );
     // console.log("Inside checkFood food color" + foodColor);
+
     growSnake(direction.dx, direction.dy);
     // drawFood(snakeFood.x, snakeFood.y, foodColor);
     Score += 1;
     drawScore(Score);
     updateHighScore(Score);
     updateSpeed();
+
+    eatAudio.play();
+    if (Score % LEVEL_UP_FOOD === 0) {
+      levelUp.currentTime = 0;
+      levelUp.play();
+    }
   }
   // else {
   // snakeLength.pop();

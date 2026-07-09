@@ -21,7 +21,6 @@ export function generateFood() {
 }
 
 export function getFood(snakeLength) {
-  const food = generateFood();
   let y;
   let x;
   let isValid = false;
@@ -41,6 +40,8 @@ export function getFood(snakeLength) {
   // }
 
   while (!isValid) {
+    let food = generateFood();
+
     // Step 1: Generate random position
     // y = generateFood().yAxis;
     // x = generateFood().xAxis;
